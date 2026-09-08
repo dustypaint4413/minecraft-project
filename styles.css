@@ -630,3 +630,104 @@ footer p {
     width: 46px;
     height: 62px;
 }
+
+
+/* ---------------------------------------------------------------------------
+   Mobile
+--------------------------------------------------------------------------- */
+
+/* Filter box for long lists. font-size must stay at or above 16px: Safari on
+   iOS zooms the page in when a smaller input receives focus. */
+.list-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0 6px;
+    flex-wrap: wrap;
+}
+
+.list-filter-input {
+    flex: 1 1 220px;
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 16px;
+    font-family: inherit;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.6);
+    border-left-color: rgba(0, 0, 0, 0.6);
+    border-right-color: rgba(255, 255, 255, 0.25);
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+    border-radius: 0;
+}
+
+.list-filter-input::placeholder { color: rgba(255, 255, 255, 0.45); }
+
+.list-filter-input:focus {
+    outline: 2px solid #4ade80;
+    outline-offset: 2px;
+}
+
+.list-filter-count {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.65);
+    white-space: nowrap;
+}
+
+/* Marked by text as well as colour, not colour alone. */
+.list-filter-count.is-empty { color: #fca5a5; }
+.list-filter-count.is-empty::after { content: " 4 no matches"; }
+
+/* The list items set display:flex, which outranks the browser's default
+   [hidden] { display: none }. Without this the filter marks rows hidden but
+   they carry on rendering at full height. */
+.block-list li[hidden],
+.mob-list li[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    /* Touch targets. The nav buttons were about 30px tall; 44px is the
+       accepted minimum for a reliable finger tap. */
+    .nav-links li a {
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 0.55rem;
+    }
+
+    .nav-links {
+        gap: 8px;
+        padding-bottom: 10px;
+    }
+
+    /* The sticky header was taking roughly a fifth of a phone screen. */
+    .header-content { padding: 30px 0 12px; }
+    header.scrolled .header-content { padding: 22px 0 8px; }
+    header::before { height: 22px; }
+
+    /* Long lists: tighter rows, so a thousand entries is less of a scroll. */
+    .block-list li { padding: 6px 4px; }
+    .block-thumb { flex: 0 0 28px; width: 28px; height: 28px; }
+    .block-name { font-size: 0.9rem; }
+
+    /* Cards carried a lot of vertical padding, which adds up over a page. */
+    .stat-card { padding: 18px; }
+    .stat-icon { font-size: 2rem; margin-bottom: 10px; }
+    .fact-card { padding: 18px; }
+    .tutorial-card p { padding: 16px 18px; }
+    .tutorial-header { padding: 14px 18px; }
+    .section { padding: 44px 0; }
+    .section h2 { font-size: 1.5rem; margin-bottom: 24px; }
+    .section h2 i { font-size: 1.6rem; }
+    .section h2.section-title { font-size: 1.9rem; }
+
+    /* Body copy: keep it comfortable rather than shrinking it. */
+    .mob-roster p, .tutorial-card p, .fact-card p { font-size: 1rem; }
+}
+
+/* Very narrow phones. */
+@media (max-width: 380px) {
+    .nav-links li a { font-size: 0.5rem; padding: 10px 8px; }
+    .section h2 { font-size: 1.3rem; }
+}
