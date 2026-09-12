@@ -1,0 +1,7 @@
+# Minecraft Hub
+# The guides are meant to be found. The license still applies to
+# republishing them - see license.html.
+User-agent: *
+Allow: /
+
+Sitemap: https://dustypaint4413.github.io/minecraft-project/sitemap.xml
