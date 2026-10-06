@@ -792,3 +792,29 @@ footer p {
     background: rgba(255, 255, 255, 0.08);
     color: #fff;
 }
+
+/* Health and attack damage shown as Minecraft hearts. The number stays beside
+   them: ten hearts are hard to count at a glance, and the Warden's 250 would
+   be absurd to draw, so past ten it collapses to one heart and a multiplier. */
+.hearts {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    vertical-align: -4px;
+}
+
+.hearts img {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+.hearts-x {
+    margin-left: 3px;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .hearts img { width: 15px; height: 15px; }
+    .hearts { vertical-align: -3px; }
+}
